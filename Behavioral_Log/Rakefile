@@ -1,4 +1,26 @@
-ENV["SINATRA_ENV"] ||= "development"
+ENV["SINATRA_ENV"] ||= "development"            #replaced these code b/c the one from Corneal wasn't working
 
-require_relative './config/environment'
 require 'sinatra/activerecord/rake'
+require_relative './config/environment'
+
+# Type `rake -T` on your command line to see the available rake tasks.
+
+task :console do
+  Pry.start
+end
+
+# require './config/environment'
+# require 'sinatra/activerecord/rake'
+
+# task :environment do
+#     require '.config/env'
+# end
+
+# task :console => :environment do 
+#     Pry.start
+# end 
+
+# ENV["SINATRA_ENV"] ||= "development"
+
+# # require_relative './config/environment'
+# # require 'sinatra/activerecord/rake'
