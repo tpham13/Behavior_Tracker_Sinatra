@@ -28,6 +28,7 @@ class ApplicationController < Sinatra::Base
 
   get '/sessions/login' do
     erb :'sessions/login'
+    
   end
 
   post '/sessions' do
@@ -37,7 +38,7 @@ class ApplicationController < Sinatra::Base
       session[:id] = @user.id    
       redirect '/users/welcome'
     end
-    # redirect '/sessions/login'
+    redirect '/sessions/login'
   end
 
   get '/sessions/logout' do
