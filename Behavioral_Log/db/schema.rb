@@ -10,12 +10,34 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 1) do
+ActiveRecord::Schema.define(version: 2020_08_13_072611) do
+
+  create_table "behavior_logs", force: :cascade do |t|
+    t.datetime "date"
+    t.string "time"
+    t.string "behavior"
+    t.string "incident_before_behavior"
+    t.integer "kid_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "kids", force: :cascade do |t|
+    t.string "name"
+    t.integer "age"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "email"
-    t.string "password"
+    t.integer "kid_id"
+    t.integer "behaviorlog_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "password_digest"
   end
 
 end

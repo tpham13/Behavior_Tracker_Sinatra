@@ -1,3 +1,4 @@
 class BehaviorLog < ActiveRecord::Base
-    belong_to :kids
+    # belongs_to :kid
+    belongs_to :user
 end 

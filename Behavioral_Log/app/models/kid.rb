@@ -1,4 +1,4 @@
 class Kid < ActiveRecord::Base
-    belong_to :users 
+    belongs_to :user 
     has_many :behaviorlogs
 end 

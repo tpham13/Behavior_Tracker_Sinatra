@@ -13,43 +13,38 @@ class ApplicationController < Sinatra::Base
     erb :home
   end
 
-  get '/registrations/signup' do
 
-    erb :'/registrations/signup'
-  end
+  # get '/registrations' do
+  #   @user = User.new(name: params["name"], email: params["email"], password: params["password"])
+  #   @user.save
+  #   session[:id] = @user.id  #this log the user in once they sign-up
+  #   redirect '/users/welcome'
+  # end
 
-
-  get '/registrations' do
-    @user = User.new(name: params["name"], email: params["email"], password: params["password"])
-    @user.save
-    session[:id] = @user.id  #this log the user in once they sign-up
-    redirect '/users/welcome'
-  end
-
-  get '/sessions/login' do
-    erb :'sessions/login'
+  # # get '/sessions/login' do
+  # #   erb :'sessions/login'
     
-  end
+  # # end
 
-  post '/sessions' do
+  # post '/sessions/' do
     
-    @user = User.find_by(email: params[:email], password: params[:password])
-    if @user
-      session[:id] = @user.id    
-      redirect '/users/welcome'
-    end
-    redirect '/sessions/login'
-  end
+  #   @user = User.find_by(email: params[:email], password: params[:password])
+  #   if @user && @user.authenticate(params[:password])
+  #     session[:user_id] = @user.id    
+  #     redirect '/users/welcome'
+  #   end
+  #   redirect '/sessions/login'
+  # end
 
-  get '/sessions/logout' do
-    session.clear
-    redirect '/'
-  end
+  # get '/sessions/logout' do
+  #   session.clear
+  #   redirect '/'
+  # end
 
-  get '/users/welcome' do #not working, can it find user? did it save the user log in info?
+  # get '/users/welcome' do #not working, can it find user? did it save the user log in info?
 
-    @user = User.find(session[:id])
-    erb :'/users/welcome'
-  end
+  #   @user = User.find(session[:id])
+  #   erb :'/users/welcome'
+  # end
 end
       
