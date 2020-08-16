@@ -5,7 +5,7 @@ get '/kids/register_kids' do
   end 
 
 post '/kids/register_kids' do
-    @kid = Kids.create(params)
+    @kid = Kid.create(params)
     erb :'/kids/welcome_kid'
     
   end
