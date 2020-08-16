@@ -1,4 +1,5 @@
 require './config/environment'
+enable :sessions
 
 class ApplicationController < Sinatra::Base
   register Sinatra::ActiveRecordExtension

@@ -9,4 +9,5 @@ class UsersController < ApplicationController
       erb :'/users/welcome'
       
     end
+
 end 
