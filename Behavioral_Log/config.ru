@@ -6,4 +6,5 @@ require './config/environment'
 
 use UsersController
 use KidsController 
+use BehaviorLogsController
 run ApplicationController
