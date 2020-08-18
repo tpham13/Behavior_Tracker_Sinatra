@@ -2,4 +2,4 @@ user = [
     
 ]
 
-user.each {|t| User.create(item: t)}
+# user.each {|t| User.create(item: t)}

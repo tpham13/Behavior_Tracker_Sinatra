@@ -1,20 +1,35 @@
 require './config/environment'
-enable :sessions
 
 class ApplicationController < Sinatra::Base
   register Sinatra::ActiveRecordExtension
-  set :views, Proc.new { File.join(root, "../views/") }
+  register Sinatra::Flash
 
   configure do
     set :public_folder, 'public'
     set :views, 'app/views'
+    enable :sessions
+    register Sinatra::Flash
+    set :session_secret, ENV['SESSION_SECRET']
+    # set :views, Proc.new { File.join(root, "../views/") }
   end
 
   get '/' do
-    erb :home
+    erb :'home_page/home'
   end
 
+  helpers do 
+    
+    def logged_in?
+      !!current_user
+    end
 
+    def current_user
+      @current_user ||= User.find_by_id(session[:user_id]) if session[:user_id]    
+    end 
+
+  end 
+
+end
   # get '/registrations' do
   #   @user = User.new(name: params["name"], email: params["email"], password: params["password"])
   #   @user.save
@@ -47,5 +62,4 @@ class ApplicationController < Sinatra::Base
   #   @user = User.find(session[:id])
   #   erb :'/users/welcome'
   # end
-end
       
