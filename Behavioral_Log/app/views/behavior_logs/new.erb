@@ -6,10 +6,30 @@
 
 <form action='/behavior_logs/new' method='POST'>
     
-    <input type="datetime" name="date" placeholder="Enter behavior occurance date">
-    <input type="timestamps" name="time" placeholder="Enter behavior occurance time">
-    <input type="text" name="behavior" placehold="Describe child's behavior">
-    <input type="text" name="incident_before_behavior" placeholder="Enter incident before behavior">
+    <label for="date">Enter behavior occurance date:</label>
+    <br/>
+    <input type="datetime" name="date" placeholder="date">
+    <br/>
+    <br/>
+    <label for="time">What time did the behavior occured?</label>
+    <br/>
+    <input type="timestamps" name="time" placeholder="time">
+    <br/>
+    <br/>
+    <label for="behavior">Describe child's behavior:</label>
+    <br/>
+    <textarea id="behavior" name="behavior"
+          rows="5" cols="33">
+    </textarea>
+    <br/>
+    <br/>
+    <label for="incident_before_behavior">Describe what happened right before the behavior exhibit:</label> 
+    <br/>
+    <textarea id="incident_before_behavior" name="incident_before_behavior"
+          rows="5" cols="33">
+    </textarea>
+    <br/>
+    <br/>
     <input type="submit" value="submit">
 </form>
 

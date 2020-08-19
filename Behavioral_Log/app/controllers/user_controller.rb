@@ -5,13 +5,13 @@ class UsersController < ApplicationController
 
     post '/signup' do
       # binding.pry---couldn't get pry to open
-      if params[:username].empty? || params[:email].empty?
+      if params[:name].empty? || params[:email].empty?
         @error = "All fields must be completed"
         erb :'users/signup'
       else 
-        user = User.create(params)
-        session[:user_id] = user.id
-        redirect '/kid/register_kids'  
+        @user = User.create(params)
+        session[:user_id] = @user.id
+        erb :'/users/welcome'  
       end 
     end
 
