@@ -24,7 +24,7 @@ class UsersController < ApplicationController
 
       if @user && @user.authenticate(params[:password])
         session[:user_id] = @user.id
-        redirect to '/behavior_logs'
+        redirect '/kids'
        else
         flash[:error] = "Invalid credentials. Try again!"
         redirect to '/login'
@@ -34,5 +34,5 @@ class UsersController < ApplicationController
     get '/logout' do
       session.clear
       redirect '/'
-  end
+    end
 end 

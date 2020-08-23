@@ -1,0 +1,3 @@
+<% @behavior_logs.each do |log| %>
+<p><%= @behavior_logs.attributes %> by <%= log.user.email.kid %></p>
+<% end %>

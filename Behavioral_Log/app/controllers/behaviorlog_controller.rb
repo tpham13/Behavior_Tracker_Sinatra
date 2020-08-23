@@ -1,5 +1,12 @@
 class BehaviorLogsController < ApplicationController 
 
+  get 'behavior_logs' do
+    erb :'/behavior_logs/index'
+    
+  end
+
+  # post ''
+
   get '/behavior_logs' do
     erb :'/behavior_logs/new'
   end
@@ -8,7 +15,8 @@ class BehaviorLogsController < ApplicationController
     #     @kid = Kid.create(params)
     #     erb :'/behavior_logs/show_log'
     #   end 
-    
+  
+  
     post '/behavior_logs' do      #need kid id
         @new_behavior = BehaviorLog.create
         erb :'/behavior_logs/new'
